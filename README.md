@@ -13,6 +13,7 @@ Q: What happens when a unit is broken? Are my fluids lost?
 
 A: Fluids are not lost. Fluids are "packed" inside the item and are recovered when you place the unit back down.
 ![](https://i.imgur.com/U5drgmQ.png)
+
 Warning: If a fluid unit is destroyed (biters, nuke, or otherwise) then you will NOT get a packed unit and your items will be lost!
 ![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
 ### Power
@@ -30,6 +31,7 @@ Memory units can connect to the circuit network! Simply attach a red or green wi
 This will read both the type and amount of whatever you have stored in the unit.
 
 Circuit signals in Factorio can only go up to 2147483647. If you happen to have more items than this stored in a memory unit, then the signal will still only display as 2.1G.
+
 ![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
 ### UPS
 This mod is optimized. Should have a very minor impact on your UPS.
@@ -39,11 +41,13 @@ The color of the unit is based on the fluid inside!
 ![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
 ### Custom GUI
 Fluid units have a custom gui as of v1.4.0!
+
 ![](https://i.imgur.com/g9BwpM0.png)
 ![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
 ### Addon
 This mod is the official add-on to the Memory Storage mod, but they can work separately if you don't need both.
 https://mods.factorio.com/mod/deep-storage-unit
+
 ![](https://mods-data.factorio.com/assets/4b89c9d3e7ae1cbb8457f0ae75444976ee64570f.png)
 
 ### [> Check out my other mods! <](https://mods.factorio.com/user/notnotmelon)
