@@ -1,12 +1,15 @@
 {
-  "name": "[internal-mod-name]",
-  "version": "0.0.0",
-  "title": "[MOD DISPLAY NAME]",
-  "author": "[YOUR MODS.FACTORIO.COM USERNAME]",
-  "homepage": "[HOMEPAGE/REPO URL]",
-  "description": "[SHORT DESCRIPTION]",
+  "name": "fluid-memory-storage",
+  "version": "1.4.6",
+  "title": "Fluid Memory Storage",
+  "author": "notnotmelon",
+  "homepage": "https://github.com/notnotmelon/fluid-memory-storage",
+  "description": "An alternative to flare stack/voiding fluids. The Fluid Memory Unit can store an infinite amount of any liquid or gas. The more fluid you store, the more power it will require!",
   "factorio_version": "1.1",
   "dependencies": [
-    "base"
+    "base",
+    "? deep-storage-unit",
+    "(?) PickerDollies",
+    "! logistic-memory-units"
   ]
 }
