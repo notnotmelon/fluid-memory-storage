@@ -17,11 +17,13 @@ circuit_wire_connection_points = {
 	circuit_wire_connection_points
 }
 
-local nothing = {
-	filename = '__fluid-memory-storage__/graphics/entity/nothing.png',
-	priority = 'extra-high',
-	size = 1
-}
+local function nothing()
+	return {
+		filename = '__fluid-memory-storage__/graphics/entity/nothing.png',
+		priority = 'extra-high',
+		size = 1
+	}
+end
 
 data:extend{
 	{
@@ -136,10 +138,10 @@ data:extend{
 					scale = 0.5
 				}
 			},
-			fluid_background = nothing,
-			window_background = nothing,
-			flow_sprite = nothing,
-			gas_flow = nothing
+			fluid_background = nothing(),
+			window_background = nothing(),
+			flow_sprite = nothing(),
+			gas_flow = nothing()
 		},
 		flow_length_in_ticks = 360,
 		corpse = 'medium-remnants',
@@ -203,8 +205,8 @@ data:extend{
 		type = 'constant-combinator',
 		collision_mask = {},
 		remove_decoratives = 'false',
-		sprites = nothing,
-		activity_led_sprites = nothing,
+		sprites = nothing(),
+		activity_led_sprites = nothing(),
 		activity_led_light_offsets = {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
 		activity_led_light_offsets = {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
 		selection_priority = 51,
