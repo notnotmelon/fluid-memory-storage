@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.2
+Date: 2024-08-04
+  Bugfixes:
+    - Fixed a crash caused by a faulty migration (https://mods.factorio.com/mod/fluid-memory-storage/discussion/65a40370e283339a647d533e)
+---------------------------------------------------------------------------------------------------
 Version: 1.5.1
 Date: 2024-08-04
   Bugfixes:
