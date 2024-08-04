@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2024-08-04
+  Info:
+    - Combined locale files into a single locale file.
+  Features:
+    - Added automatic portal deployment with via https://github.com/fgardt/factorio-mod-template
+---------------------------------------------------------------------------------------------------
 Version: 1.4.6
 Date: 2023.1.17
   Features:
