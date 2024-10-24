@@ -8,7 +8,7 @@ local function format_energy(energy)
 end
 
 local function update_gui(gui, fresh_gui)
-	local unit_data = global.units[gui.tags.unit_number]
+	local unit_data = storage.units[gui.tags.unit_number]
 	if not unit_data then
 		gui.destroy()
 		return

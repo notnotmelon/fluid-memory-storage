@@ -8,7 +8,7 @@ local validity_check = shared.validity_check
 local combine_tempatures = shared.combine_tempatures
 
 local function setup()
-	global.units = global.units or {}
+	storage.units = storage.units or {}
 
 	if remote.interfaces["PickerDollies"] then
 		remote.call("PickerDollies", "add_blacklist_name", "fluid-memory-unit", true)
@@ -20,7 +20,7 @@ script.on_init(setup)
 script.on_configuration_changed(function()
 	setup()
 
-	for unit_number, unit_data in pairs(global.units) do
+	for unit_number, unit_data in pairs(storage.units) do
 		if unit_data.item and not validity_check(unit_number, unit_data) then
 			if not game.fluid_prototypes[unit_data.item] then shared.memory_unit_corruption(unit_number, unit_data) end
 		end
@@ -115,7 +115,7 @@ end
 script.on_nth_tick(update_rate, function(event)
 	local smooth_ups = event.tick % update_slots
 
-	for unit_number, unit_data in pairs(global.units) do
+	for unit_number, unit_data in pairs(storage.units) do
 		if unit_data.lag_id == smooth_ups then
 			update_unit(unit_data, unit_number)
 		end
@@ -152,7 +152,7 @@ local function on_created(event)
 		count = 0,
 		lag_id = math.random(0, update_slots - 1)
 	}
-	global.units[entity.unit_number] = unit_data
+	storage.units[entity.unit_number] = unit_data
 
 	local stack = event.stack
 	local tags = stack and stack.valid_for_read and stack.type == "item-with-tags" and stack.tags
@@ -178,7 +178,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 	if entity.name ~= "fluid-memory-unit" then return end
 	local destination = event.destination
 
-	local unit_data = global.units[entity.unit_number]
+	local unit_data = storage.units[entity.unit_number]
 	local position = destination.position
 	local surface = destination.surface
 
@@ -208,7 +208,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 	end
 
 	local item = unit_data.item
-	global.units[destination.unit_number] = {
+	storage.units[destination.unit_number] = {
 		powersource = powersource,
 		combinator = combinator,
 		item = item,
@@ -222,7 +222,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 	if item then
 		render_fluid_animation(item, destination)
 		destination.fluidbox.set_filter(1, {name = item, force = true})
-		update_unit(global.units[destination.unit_number], destination.unit_number, true)
+		update_unit(storage.units[destination.unit_number], destination.unit_number, true)
 	end
 end)
 
@@ -230,8 +230,8 @@ local function on_destroyed(event)
 	local entity = event.entity
 	if entity.name ~= "fluid-memory-unit" then return end
 
-	local unit_data = global.units[entity.unit_number]
-	global.units[entity.unit_number] = nil
+	local unit_data = storage.units[entity.unit_number]
+	storage.units[entity.unit_number] = nil
 	unit_data.powersource.destroy()
 	unit_data.combinator.destroy()
 
@@ -263,7 +263,7 @@ local function pre_mined(event)
 	local entity = event.entity
 	if entity.name ~= "fluid-memory-unit" then return end
 
-	local unit_data = global.units[entity.unit_number]
+	local unit_data = storage.units[entity.unit_number]
 	local item = unit_data.item
 
 	if item then
