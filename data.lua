@@ -51,7 +51,8 @@ data:extend {
 		subgroup = "storage",
 		localised_name = {"item-name.fluid-memory-unit-with-tags"},
 		localised_description = {"entity-description.fluid-memory-unit"},
-		flags = {"not-stackable", "hidden"}
+		flags = {"not-stackable"},
+		hidden = true,
 	},
 	{
 		type = "animation",
@@ -88,11 +89,12 @@ data:extend {
 		icon = "__fluid-memory-storage__/graphics/icon/fluid-memory-unit.png",
 		icon_size = 64,
 		icon_mipmaps = 4,
-		collision_mask = {},
+		collision_mask = {layers = {}},
 		selectable_in_game = false,
 		remove_decoratives = "false",
 		name = "fluid-memory-unit-powersource",
-		flags = {"placeable-neutral", "hidden", "not-selectable-in-game", "not-rotatable", "not-flammable", "placeable-off-grid"}
+		hidden = true,
+		flags = {"placeable-neutral", "not-selectable-in-game", "not-rotatable", "not-flammable", "placeable-off-grid"}
 	},
 	{
 		name = "fluid-memory-unit",
@@ -101,13 +103,13 @@ data:extend {
 		icon_size = 64,
 		icon_mipmaps = 4,
 		fluid_box = {
-			base_area = 1200,
+			volume = 1200,
 			pipe_covers = pipecoverspictures(),
 			pipe_connections = {
-				{position = {0, 2}},
-				{position = {0, -2}},
-				{position = {2, 0}},
-				{position = {-2, 0}}
+				{position = {0, 1},  direction = defines.direction.north},
+				{position = {0, -1}, direction = defines.direction.east},
+				{position = {1, 0},  direction = defines.direction.south},
+				{position = {-1, 0}, direction = defines.direction.west}
 			},
 			hide_connection_info = true,
 			base_level = -1
@@ -148,10 +150,10 @@ data:extend {
 		name = "fluid-memory-unit",
 		ingredients = {
 			{type = "item", name = "storage-tank",            amount = 2},
-			{type = "item", name = "effectivity-module",      amount = 2},
+			{type = "item", name = "efficiency-module",       amount = 2},
 			{type = "item", name = "energy-shield-equipment", amount = 2}
 		},
-		results = {type = "item", name = "fluid-memory-unit", amount = 1},
+		results = {{type = "item", name = "fluid-memory-unit", amount = 1}},
 		main_product = "fluid-memory-unit",
 		enabled = false
 	},
@@ -166,7 +168,7 @@ data:extend {
 		}},
 		prerequisites = (mods["deep-storage-unit"] and {"memory-unit"} or {
 			"chemical-science-pack",
-			"effectivity-module",
+			"efficiency-module",
 			"energy-shield-equipment"
 		}),
 		unit = {
@@ -181,17 +183,18 @@ data:extend {
 	},
 	{
 		circuit_wire_connection_points = circuit_wire_connection_points,
-		circuit_wire_max_distance = 9,
+		circuit_wire_max_distance = 12,
 		collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
 		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-		flags = {"placeable-neutral", "hidden", "not-deconstructable", "not-flammable", "not-upgradable", "not-rotatable", "hide-alt-info", "placeable-off-grid"},
+		flags = {"placeable-neutral", "not-deconstructable", "not-flammable", "not-upgradable", "not-rotatable", "hide-alt-info", "placeable-off-grid"},
+		hidden = true,
 		icon = "__fluid-memory-storage__/graphics/icon/fluid-memory-unit.png",
 		icon_size = 64,
 		icon_mipmaps = 4,
 		item_slot_count = 1,
 		name = "fluid-memory-unit-combinator",
 		type = "constant-combinator",
-		collision_mask = {},
+		collision_mask = {layers = {}},
 		remove_decoratives = "false",
 		activity_led_light_offsets = {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
 		selection_priority = 51,
