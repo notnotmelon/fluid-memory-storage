@@ -55,25 +55,14 @@ data:extend {
 		hidden = true,
 	},
 	{
-		type = "animation",
-		name = "fluid-memory-unit-animation",
-		filename = "__fluid-memory-storage__/graphics/entity/fluid-background.png",
+		filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-background.png",
 		priority = "extra-high",
-		size = {128, 128},
+		size = {256, 256},
 		shift = {0.25, -0.0625},
+		scale = 0.5,
 		frame_count = 16,
 		line_length = 8,
-		apply_runtime_tint = true,
-		hr_version = {
-			filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-background.png",
-			priority = "extra-high",
-			size = {256, 256},
-			shift = {0.25, -0.0625},
-			scale = 0.5,
-			frame_count = 16,
-			line_length = 8,
-			apply_runtime_tint = true
-		}
+		apply_runtime_tint = true
 	},
 	{
 		type = "electric-energy-interface",
@@ -120,17 +109,11 @@ data:extend {
 		window_bounding_box = {{-1, -1}, {1, 1}},
 		pictures = {
 			picture = {
-				filename = "__fluid-memory-storage__/graphics/entity/fluid-memory-unit.png",
+				filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-memory-unit.png",
 				priority = "high",
-				size = {128, 128},
+				size = {256, 256},
 				shift = {0.25, -0.0625},
-				hr_version = {
-					filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-memory-unit.png",
-					priority = "high",
-					size = {256, 256},
-					shift = {0.25, -0.0625},
-					scale = 0.5
-				}
+				scale = 0.5
 			},
 		},
 		flow_length_in_ticks = 360,
