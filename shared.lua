@@ -37,7 +37,8 @@ end
 
 local function update_display_text(unit_data, entity, localised_string)
 	if unit_data.text then
-		rendering.set_text(unit_data.text, localised_string)
+		local text = rendering.get_object_by_id(unit_data.text)
+		if text then text.text = localised_string end
 	else
 		unit_data.text = rendering.draw_text {
 			surface = entity.surface,
@@ -47,7 +48,7 @@ local function update_display_text(unit_data, entity, localised_string)
 			scale = 1.5,
 			only_in_alt_mode = true,
 			color = {r = 1, g = 1, b = 1}
-		}
+		}.id
 	end
 end
 

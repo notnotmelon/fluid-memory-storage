@@ -25,7 +25,7 @@ local function update_gui(gui, fresh_gui)
 	if unit_data.item then
 		inventory_count = entity.get_fluid_count(unit_data.item)
 		if fresh_gui or not deconstructed then
-			local localised_name = game.fluid_prototypes[unit_data.item].localised_name
+			local localised_name = prototypes.fluid[unit_data.item].localised_name
 			content_flow.storage_flow.content_sprite.sprite = "fluid/" .. unit_data.item
 			content_flow.storage_flow.current_storage.caption = {
 				"",
@@ -74,7 +74,7 @@ local function update_gui(gui, fresh_gui)
 	content_flow.status_flow.status_sprite.sprite = img
 end
 
-script.on_nth_tick(2, function(event)
+script.on_nth_tick(2, function()
 	for _, player in pairs(game.connected_players) do
 		if player.opened_gui_type == defines.gui_type.custom then
 			local gui = player.gui.screen.fluid_memory_unit_gui
@@ -123,7 +123,7 @@ script.on_event(defines.events.on_gui_opened, function(event)
 	local status_sprite = status_flow.add {type = "sprite", name = "status_sprite"}
 	status_sprite.resize_to_sprite = false
 	status_sprite.style.size = {16, 16}
-	local status_text = status_flow.add {type = "label", name = "status_text"}
+	status_flow.add {type = "label", name = "status_text"}
 
 	local entity_preview = content_flow.add {type = "entity-preview", name = "entity_preview", style = "mu_entity_preview"}
 	entity_preview.entity = entity

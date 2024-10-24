@@ -151,8 +151,7 @@ local function on_created(event)
 	}
 	storage.units[entity.unit_number] = unit_data
 
-	local stack = event.stack
-	local tags = stack and stack.valid_for_read and stack.type == "item-with-tags" and stack.tags
+	local tags = event.tags
 	if tags and tags.name then
 		unit_data.count = tags.count
 		unit_data.temperature = tags.temperature
@@ -238,15 +237,19 @@ local function on_destroyed(event)
 
 	if buffer and item and count ~= 0 then
 		buffer.clear()
-		buffer.insert("fluid-memory-unit-with-tags")
-		local stack = buffer.find_item_stack("fluid-memory-unit-with-tags")
 		local temperature = unit_data.temperature
-		stack.tags = {name = item, count = count, temperature = temperature}
-		stack.custom_description = {
-			"item-description.fluid-memory-unit-with-tags",
-			compactify(count),
-			item,
-			string.format("%.2f", temperature)
+		buffer.insert {
+			name = "fluid-memory-unit-with-tags",
+			count = 1,
+			health = entity.health / entity.max_health,
+			custom_description = {
+				"item-description.fluid-memory-unit-with-tags",
+				compactify(count),
+				item,
+				string.format("%.2f", temperature)
+			},
+			tags = {name = item, count = count, temperature = temperature},
+			quality = entity.quality
 		}
 	end
 end
