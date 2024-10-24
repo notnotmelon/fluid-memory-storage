@@ -52,7 +52,8 @@ local function update_display_text(unit_data, entity, localised_string)
 end
 
 local function update_combinator(combinator, signal, count)
-	combinator.get_or_create_control_behavior().set_signal(1, {
+	local control = combinator.get_or_create_control_behavior()
+	control.get_section(1).set_slot(1, {
 		signal = signal,
 		count = min(2147483647, count)
 	})
