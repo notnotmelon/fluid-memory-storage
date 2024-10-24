@@ -22,14 +22,14 @@ script.on_configuration_changed(function()
 
 	for unit_number, unit_data in pairs(storage.units) do
 		if unit_data.item and not validity_check(unit_number, unit_data) then
-			if not game.fluid_prototypes[unit_data.item] then shared.memory_unit_corruption(unit_number, unit_data) end
+			if not prototypes.fluid[unit_data.item] then shared.memory_unit_corruption(unit_number, unit_data) end
 		end
 	end
 end)
 
 local min = math.min
 local function render_fluid_animation(item, entity)
-	local color = game.fluid_prototypes[item].base_color
+	local color = prototypes.fluid[item].base_color
 	rendering.draw_animation {
 		animation = "fluid-memory-unit-animation",
 		tint = {
@@ -39,7 +39,7 @@ local function render_fluid_animation(item, entity)
 		},
 		render_layer = "higher-object-above",
 		target = entity,
-		surface = entity.surface
+		surface = entity.surface_index
 	}
 end
 
@@ -74,9 +74,6 @@ end
 
 local function update_unit(unit_data, unit_number, force)
 	local entity = unit_data.entity
-	local powersource = unit_data.powersource
-	local combinator = unit_data.combinator
-	local container = unit_data.container
 
 	if validity_check(unit_number, unit_data, force) then return end
 
@@ -190,7 +187,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 		powersource = surface.create_entity {
 			name = "memory-unit-powersource",
 			position = position,
-			force = force
+			force = entity.force_index
 		}
 		powersource.destructible = false
 	end
@@ -201,7 +198,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 		combinator = surface.create_entity {
 			name = "fluid-memory-unit-combinator",
 			position = {position.x, position.y - 1.25},
-			force = force
+			force = entity.force_index
 		}
 		combinator.destructible = false
 		combinator.operable = false

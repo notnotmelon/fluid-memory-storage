@@ -55,7 +55,9 @@ data:extend {
 		hidden = true,
 	},
 	{
-		filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-background.png",
+		type = "animation",
+		name = "fluid-memory-unit-animation",
+		filename = "__fluid-memory-storage__/graphics/entity/fluid-background.png",
 		priority = "extra-high",
 		size = {256, 256},
 		shift = {0.25, -0.0625},
@@ -92,7 +94,7 @@ data:extend {
 		icon_size = 64,
 		icon_mipmaps = 4,
 		fluid_box = {
-			volume = 1200,
+			volume = 120000,
 			pipe_covers = pipecoverspictures(),
 			pipe_connections = {
 				{position = {0, 1},  direction = defines.direction.south},
@@ -109,7 +111,7 @@ data:extend {
 		window_bounding_box = {{-1, -1}, {1, 1}},
 		pictures = {
 			picture = {
-				filename = "__fluid-memory-storage__/graphics/entity/hr-fluid-memory-unit.png",
+				filename = "__fluid-memory-storage__/graphics/entity/fluid-memory-unit.png",
 				priority = "high",
 				size = {256, 256},
 				shift = {0.25, -0.0625},
