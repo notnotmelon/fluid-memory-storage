@@ -54,7 +54,7 @@ local function update_unit_exterior(unit_data, inventory_count)
 		unit_data.temperature = temperature
 	end
 
-	shared.update_combinator(unit_data.combinator, {type = "fluid", name = unit_data.item}, total_count)
+	shared.update_combinator(unit_data.combinator, {type = "fluid", name = unit_data.item, quality = "normal"}, total_count)
 	shared.update_display_text(unit_data, entity, compactify(total_count))
 	shared.update_power_usage(unit_data, total_count)
 end
