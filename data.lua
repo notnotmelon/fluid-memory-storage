@@ -86,6 +86,7 @@ data:extend {
 		selectable_in_game = false,
 		remove_decoratives = "false",
 		name = "fluid-memory-unit-powersource",
+		quality_indicator_scale = 0,
 		hidden = true,
 		flags = {"placeable-neutral", "not-selectable-in-game", "not-rotatable", "not-flammable", "placeable-off-grid"}
 	},
@@ -181,6 +182,7 @@ data:extend {
 		item_slot_count = 1,
 		name = "fluid-memory-unit-combinator",
 		type = "constant-combinator",
+		quality_indicator_scale = 0,
 		collision_mask = {layers = {}},
 		remove_decoratives = "false",
 		activity_led_light_offsets = {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
