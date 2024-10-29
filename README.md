@@ -66,7 +66,3 @@ Fluid units have a custom gui as of v1.4.0!
 ### Addon
 
 This mod is the official add-on to the [Memory Storage mod](https://mods.factorio.com/mod/deep-storage-unit), but they can work separately if you don't need both.
-
----
-
-### [> Check out my other mods! <](https://mods.factorio.com/user/notnotmelon)
