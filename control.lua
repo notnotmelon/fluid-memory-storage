@@ -129,7 +129,8 @@ local function on_created(event)
 	local combinator = surface.create_entity {
 		name = "fluid-memory-unit-combinator",
 		position = {position.x, position.y - 1.25},
-		force = force
+		force = force,
+		quality = entity.quality
 	}
 	combinator.operable = false
 	combinator.destructible = false
@@ -137,7 +138,8 @@ local function on_created(event)
 	local powersource = surface.create_entity {
 		name = "fluid-memory-unit-powersource",
 		position = position,
-		force = force
+		force = force,
+		quality = entity.quality
 	}
 	powersource.destructible = false
 
