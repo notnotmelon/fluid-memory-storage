@@ -120,7 +120,7 @@ script.on_nth_tick(update_rate, function(event)
 end)
 
 local function on_created(event)
-	local entity = event.created_entity or event.entity
+	local entity = event.entity
 	if entity.name ~= "fluid-memory-unit" then return end
 	local position = entity.position
 	local surface = entity.surface
@@ -171,6 +171,7 @@ script.on_event(defines.events.on_built_entity, on_created)
 script.on_event(defines.events.on_robot_built_entity, on_created)
 script.on_event(defines.events.script_raised_built, on_created)
 script.on_event(defines.events.script_raised_revive, on_created)
+script.on_event(defines.events.on_space_platform_built_entity, on_created)
 
 script.on_event(defines.events.on_entity_cloned, function(event)
 	local entity = event.source
@@ -261,6 +262,7 @@ script.on_event(defines.events.on_player_mined_entity, on_destroyed)
 script.on_event(defines.events.on_robot_mined_entity, on_destroyed)
 script.on_event(defines.events.on_entity_died, on_destroyed)
 script.on_event(defines.events.script_raised_destroy, on_destroyed)
+script.on_event(defines.events.on_space_platform_mined_entity, on_destroyed)
 
 local function pre_mined(event)
 	local entity = event.entity
