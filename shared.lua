@@ -37,19 +37,22 @@ end
 
 local function update_display_text(unit_data, entity, localised_string)
 	if unit_data.text then
-		local text = rendering.get_object_by_id(unit_data.text)
-		if text then text.text = localised_string end
-	else
-		unit_data.text = rendering.draw_text {
-			surface = entity.surface,
-			target = entity,
-			text = localised_string,
-			alignment = "center",
-			scale = 1.5,
-			only_in_alt_mode = true,
-			color = {r = 1, g = 1, b = 1}
-		}.id
+		local render_object = rendering.get_object_by_id(unit_data.text)
+		if render_object then
+			render_object.text = localised_string
+			return
+		end
 	end
+
+	unit_data.text = rendering.draw_text {
+		surface = entity.surface,
+		target = entity,
+		text = localised_string,
+		alignment = "center",
+		scale = 1.5,
+		only_in_alt_mode = true,
+		color = {r = 1, g = 1, b = 1}
+	}.id
 end
 
 local function update_combinator(combinator, signal, count)
