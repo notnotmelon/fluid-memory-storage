@@ -23,7 +23,6 @@ data:extend {
 		name = "fluid-memory-unit",
 		icon = "__fluid-memory-storage__/graphics/icon/fluid-memory-unit.png",
 		icon_size = 64,
-		weight = 10000000,
 		icon_mipmaps = 4,
 		stack_size = 50,
 		place_result = "fluid-memory-unit",
