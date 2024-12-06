@@ -57,7 +57,7 @@ end
 
 local function update_combinator(combinator, signal, count)
 	local control = combinator.get_or_create_control_behavior()
-	count = min(2147483647, count),
+	local count = min(2147483647, count)
 	control.get_section(1).set_slot(1, {
 		value = signal,
 		min = count,
