@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.6
+Date: 2024-12-06
+  Bugfixes:
+    - Fixed crash at 2.1B fluids stored. Resolves https://github.com/notnotmelon/fluid-memory-storage/issues/7 Resolves https://github.com/notnotmelon/fluid-memory-storage/issues/6 Resolves https://github.com/notnotmelon/fluid-memory-storage/issues/4
+---------------------------------------------------------------------------------------------------
 Version: 1.7.5
 Date: 2024-10-31
   Changes:
