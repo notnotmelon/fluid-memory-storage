@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.8
+Date: 2024-12-10
+  Bugfixes:
+    - Fixed a crash. Resolves https://github.com/notnotmelon/fluid-memory-storage/issues/8
+---------------------------------------------------------------------------------------------------
 Version: 1.7.7
 Date: 2024-12-06
   Bugfixes:
@@ -33,7 +38,6 @@ Version: 1.7.1
 Date: 2024-10-29
   Bugfixes:
     - Fixed that the stored fluid information would be deleted in certian cases when placing the fluid unit.
-    - Fixed the combinator not updating properly.
     - Fixed the combinator not updating properly. Resolves [#3](https://github.com/notnotmelon/fluid-memory-storage/issues/3)
   Changes:
     - The quality of the fluid unit combinator now matches the quality of the fluid unit itself.
