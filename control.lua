@@ -99,7 +99,7 @@ local function update_unit(unit_data, unit_number, force)
 		if unit_data.count < to_add then
 			to_add = unit_data.count
 		end
-		if to_add > 0 then
+		if to_add > 0.001 then
 			local amount_added = entity.insert_fluid {name = item, amount = to_add, temperature = unit_data.temperature}
 			unit_data.count = unit_data.count - amount_added
 			inventory_count = inventory_count + amount_added
