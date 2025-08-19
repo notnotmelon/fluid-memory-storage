@@ -16,17 +16,6 @@ local function setup()
 	end
 end
 
-script.on_init(setup)
-script.on_configuration_changed(function()
-	setup()
-
-	for unit_number, unit_data in pairs(storage.units) do
-		if unit_data.item and not validity_check(unit_number, unit_data) then
-			if not prototypes.fluid[unit_data.item] then shared.memory_unit_corruption(unit_number, unit_data) end
-		end
-	end
-end)
-
 local min = math.min
 local function render_fluid_animation(item, entity)
 	local color = prototypes.fluid[item].base_color
@@ -42,6 +31,30 @@ local function render_fluid_animation(item, entity)
 		surface = entity.surface_index
 	}
 end
+
+script.on_init(setup)
+script.on_configuration_changed(function(changes)
+	setup()
+
+	for unit_number, unit_data in pairs(storage.units) do
+		if unit_data.item and not validity_check(unit_number, unit_data) then
+			if not prototypes.fluid[unit_data.item] then
+                if
+                    changes and
+                    changes.migrations and
+                    changes.migrations.fluid and
+                    changes.migrations.fluid[unit_data.item] and
+                    changes.migrations.fluid[unit_data.item] ~= ""
+                then
+                    unit_data.item = changes.migrations.fluid[unit_data.item]
+                    render_fluid_animation(unit_data.item, unit_data.entity)
+                else
+                    shared.memory_unit_corruption(unit_number, unit_data)
+                end
+            end
+		end
+	end
+end)
 
 local function update_unit_exterior(unit_data, inventory_count)
 	local entity = unit_data.entity
